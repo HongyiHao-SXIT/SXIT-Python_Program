@@ -1,6 +1,6 @@
-import math 
-r=float(input("请 输 入 半 径 : ")) 
-sarea=4*math.pi*r*r 
-volume=4/3*math.pi*r**3 
-print ( "球 的 表 面 积 : %.2f"% sarea) 
-print ( "球 的 体 积 : %.2f" % volume) 
+import math
+r = float(input("Please enter the radius: "))
+sarea = 4 * math.pi * r * r
+volume = 4 / 3 * math.pi * r ** 3
+print(f"The surface area of the sphere: {sarea:.2f}")
+print(f"The volume of the sphere: {volume:.2f}")
