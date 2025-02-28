@@ -9,6 +9,9 @@ sxit-Python_program/
 │    │    ├── tittle.py //test code
 │    ├── Note/
 │    │    ├── tittle.md //note
+│    ├── Code_in_textbook/
+│    ├── Chapter[]/
+│    │    ├── tittle.py //The homework in the textbook
 ├──Experiment/  //A folder containing classroom experiment code
 │   ├── Project[]/
 │   │   ├── Project[].py
