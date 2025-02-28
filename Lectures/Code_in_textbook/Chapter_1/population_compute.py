@@ -1,21 +1,21 @@
-population_current = 307357870
-year_day = 365
+current_population = 307357870
 
-second_total = year_day * 24 * 60 * 60
+birth_rate = 7
 
-born_increase = second_total // 7
+death_rate = 13
 
-death_decrease = second_total // 13
+immigration_rate = 35
 
-immigrant_increase = second_total // 35
+seconds_per_year = 365 * 24 * 60 * 60
 
+years = int(input("Please enter the number of years (as an integer): "))
 
-population_change_next_year = born_increase - death_decrease + immigrant_increase
+births = (seconds_per_year * years) // birth_rate
 
-year_enter = input("Please enter a year in your mind: ")
+deaths = (seconds_per_year * years) // death_rate
 
-sub_year = int(year_enter) - 2009
+immigrants = (seconds_per_year * years) // immigration_rate
 
-population_now = population_current + sub_year * population_change_next_year
+estimated_population = current_population + births - deaths + immigrants
 
-print(f"In {year_enter}, there are {population_now} people in the USA.")
+print(f"Estimated population after {years} years: {estimated_population} people")
