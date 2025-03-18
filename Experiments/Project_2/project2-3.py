@@ -1,10 +1,9 @@
 def check_narcissistic_number(num):
-    num_str = str(num)
-    n = len(num_str)
-    total = 0
-    for digit in num_str:
-        total += int(digit) ** n
-    return total == num
+    hundreds = num // 100
+    tens = (num // 10) % 10
+    units = num % 10
+    if num == hundreds ** 3 + tens ** 3 + units ** 3:
+        print(num)
 def is_palindrome_number_string(num):
     num_str = str(num)
     return num_str == num_str[::-1]

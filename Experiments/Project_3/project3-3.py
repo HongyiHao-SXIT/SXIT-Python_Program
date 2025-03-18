@@ -1,30 +1,52 @@
-products = [("牛奶",5),("鸡蛋",20),("香蕉",10),("杯子",10)]
-shopping_list = []
-money = float(input("请输入您的购物资金："))
+product_list = {
+    "苹果": 5,
+    "香蕉": 3,
+    "牛奶": 8,
+    "面包": 6,
+    "巧克力": 10
+}
+
 while True:
-    print("*"*30)
-    print("商品列表如下：")
-    for index,product in enumerate(products):
-        print(f"{index+1}.商品：{product[0]}，价格：{product[1]}")
-    print("*" * 30)
-    option = input("请输入您要购买的商品(退出请键入q)：")
-    if option.isdigit():
-        option = int(option)
-        if 0 <= option-1 < len(products):
-            option_product = products[option - 1]
-            if option_product[1] <= money:
-                shopping_list.append(option_product)
-                money -= option_product[1]
-                print("购买成功！")
-            else:
-                print(f"您的余额不足，余额为：{money}")
+    try:
+        budget = float(input("请输入你的购物资金（元）："))
+        if budget < 0:
+            print("购物资金不能为负数，请重新输入。")
         else:
-            print("您选的商品不存在！")
-    elif option == "q":
-        print("-" * 10, "购物清单", "-" * 10)
-        for item in shopping_list:
-            print(f"已购商品：{item[0]}，价格：{item[1]}")
-        print("您的余额为：", money)
+            break
+    except ValueError:
+        print("输入无效，请输入一个有效的数字。")
+
+print("商品清单如下：")
+for index, (product, price) in enumerate(product_list.items(), start=1):
+    print(f"{index}. {product}: {price} 元")
+
+purchased_products = []
+
+while True:
+    choice = input("请输入要购买的商品编号（输入 q 退出）：")
+    if choice.lower() == 'q':
         break
-    else:
-        print("您的输入不合法！")
+    try:
+        choice = int(choice)
+        if 1 <= choice <= len(product_list):
+            product = list(product_list.keys())[choice - 1]
+            price = product_list[product]
+            if budget >= price:
+                purchased_products.append(product)
+                budget -= price
+                print(f"成功购买 {product}，剩余资金：{budget} 元")
+            else:
+                print("资金不足，无法购买该商品。")
+        else:
+            print("输入的编号无效，请重新输入。")
+    except ValueError:
+        print("输入无效，请输入有效的商品编号或 q 退出。")
+
+if purchased_products:
+    print("你购买的商品清单如下：")
+    for product in purchased_products:
+        print(product)
+    print(f"购买后剩余资金：{budget} 元")
+else:
+    print("你没有购买任何商品。")
+    

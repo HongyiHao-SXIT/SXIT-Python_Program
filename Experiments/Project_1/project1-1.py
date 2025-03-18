@@ -1,11 +1,8 @@
-def add(a, b):
-    print("add function have been used")
-    return a + b
+def add_function(x,y):
+    return x+y
 
-n1 = input("Please enter the first number:")
-n2 = input("Please enter the second number:")
+x1 = float(input("Please input the first number:"))
+x2 = float(input("Plwase input the second number:"))
 
-num1 = int(n1)
-num2 = int(n2)
-sum = add(num1, num2)
-print(sum)
+sum = add_function(x1,x2)
+print("The sum of the two numberis :",sum)
