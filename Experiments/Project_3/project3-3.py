@@ -1,29 +1,29 @@
 product_list = {
-    "苹果": 5,
-    "香蕉": 3,
-    "牛奶": 8,
-    "面包": 6,
-    "巧克力": 10
+    "Apple": 5,
+    "Banana": 3,
+    "Milk": 8,
+    "Bread": 6,
+    "Chocolate": 10
 }
 
 while True:
     try:
-        budget = float(input("请输入你的购物资金（元）："))
+        budget = float(input("Please enter your shopping budget (in yuan): "))
         if budget < 0:
-            print("购物资金不能为负数，请重新输入。")
+            print("The shopping budget cannot be negative. Please enter a valid amount.")
         else:
             break
     except ValueError:
-        print("输入无效，请输入一个有效的数字。")
+        print("Invalid input. Please enter a valid number.")
 
-print("商品清单如下：")
+print("The product list is as follows:")
 for index, (product, price) in enumerate(product_list.items(), start=1):
-    print(f"{index}. {product}: {price} 元")
+    print(f"{index}. {product}: {price} yuan")
 
 purchased_products = []
 
 while True:
-    choice = input("请输入要购买的商品编号（输入 q 退出）：")
+    choice = input("Please enter the product number you want to buy (enter 'q' to quit): ")
     if choice.lower() == 'q':
         break
     try:
@@ -34,19 +34,18 @@ while True:
             if budget >= price:
                 purchased_products.append(product)
                 budget -= price
-                print(f"成功购买 {product}，剩余资金：{budget} 元")
+                print(f"Successfully purchased {product}. Remaining budget: {budget} yuan")
             else:
-                print("资金不足，无法购买该商品。")
+                print("Insufficient funds. You cannot purchase this product.")
         else:
-            print("输入的编号无效，请重新输入。")
+            print("Invalid product number. Please try again.")
     except ValueError:
-        print("输入无效，请输入有效的商品编号或 q 退出。")
+        print("Invalid input. Please enter a valid product number or 'q' to quit.")
 
 if purchased_products:
-    print("你购买的商品清单如下：")
+    print("The products you purchased are as follows:")
     for product in purchased_products:
         print(product)
-    print(f"购买后剩余资金：{budget} 元")
+    print(f"Remaining budget after purchase: {budget} yuan")
 else:
-    print("你没有购买任何商品。")
-    
+    print("You didn't purchase any products.")

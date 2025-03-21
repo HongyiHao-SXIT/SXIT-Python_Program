@@ -7,8 +7,6 @@ sxit-Python_program/
 ├── Lectures/   //Class content
 │    ├── Test code/
 │    │    ├── tittle.py //test code
-│    ├── Note/
-│    │    ├── tittle.md //note
 │    ├── Code_in_textbook/
 │    ├── Chapter[]/
 │    │    ├── tittle.py //The homework in the textbook
